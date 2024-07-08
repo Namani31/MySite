@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6단계(슬라이더Zone)</title>
+    <title>7단계(슬라이더Zone - 자바스크립트 적용)</title>
     <script src="js/jquery.js"></script>
     <style>
         * {
@@ -272,14 +272,17 @@
             <script>
                 $(function () {
                     const $sliderPanel = $('.slider_panel')
-                    const $controlBtn = $('.control_btn')
+                    const $controlBtns = $('.control_btn')
                     const $leftBtn = $('.left_btn img')
                     const $rightBtn = $('.right_btn img')
+                    
 
                     let currentIndex = 0;
 
                     function updateSlider(index) {
                         $sliderPanel.css('left', `-${index * 100}%`);
+                        $controlBtns.removeClass('active');
+                        $controlBtns.eq(index).addClass(`active`);
                     }
                     $leftBtn.on('click', function () {
                         currentIndex--;
@@ -295,7 +298,19 @@
                         }
                         updateSlider(currentIndex);
                     });
+
+                    // 슬라이더 버튼 누르면 해당 사진 보이게 만들기
+                    $controlBtns.on('click', function(){
+                        // 속성 값 읽어오기
+                        currentIndex = parseInt($(this).data('index'));
+                        updateSlider(currentIndex);
+                    });
                     // updateSlider(2);
+
+                    setInterval(function() {
+                        currentIndex = (currentIndex + 1) % $controlBtns.length; // 0 ~ 2 사이 왔다갔다 함
+                        updateSlider(currentIndex);
+                    }, 3000);
                 });
             </script>
             <!-- 슬라이더Zone끝 -->
