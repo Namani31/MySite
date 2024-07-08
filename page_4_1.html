@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11단계(하단Area)</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            border: 1px solid green;
+        }
+
+        div {
+            border: 1px solid blue;
+            /* height:30px; */
+        }
+    </style>
+    <script>
+        function includeHTML(ctrl, page, callback) {
+            $.get(page, function (data) {
+                $('#' + ctrl).html(data);
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="site">
+        <!-- 상단Area시작 -->
+        <div id="topArea">
+            <!-- 타이틀 Zone 시작 -->
+            <div id="titleZonePage">
+                <script>
+                    
+                    function includeHTML(ctrl, page, callback) {
+                        // $.get이 page: 페이지 주소, function으로 파일에 있는 텍스트문 가져옴
+                        $.get(page, function(data) {
+                            // tileZonePage.html 안에 있는 코드가 타이틀 Zone 시작 괄호 사이에 들어감
+                            $('#' + ctrl).html(data);
+                            // callback에 들어있는 인수가 있다면 반환함
+                            if (callback) {
+                                callback();
+                            }
+                        });
+                    }
+                </script>
+                <!-- 타이틀 Zone끝 -->
+
+                <!-- 메뉴 Zone 시작 -->
+                <div id="menuZonePage">
+                    <script>
+                            $(function () {
+                                includeHTML('menuZonePage', 'menuZonePage.html', null);
+                            });
+                    </script>
+                    <!-- 메뉴 Zone 끝  -->
+                    <div id="titleZonePage">
+                        <script>
+
+                        </script>
