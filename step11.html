@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>11단계(본문 Area-contentsZone2)</title>
+    <title>11단계(하단Area)</title>
     <script src="js/jquery.js"></script>
     <style>
         * {
@@ -465,33 +465,56 @@
         <!-- 본문Area끝 -->
         <!-- 하단Area시작 -->
         <div id="bottomArea">
+            <!-- 핫메뉴Zone시작 -->
             <style>
                 #hotmenu {
                     width: 100%;
                     background-color: #f5f5f5;
                     border-top: 1px solid #e7e7e7;
-                    border-bottom: 1px solid #e7e7e7
+                    border-bottom: 1px solid #e7e7e7;
+                }
+
+                #hotmenu>ul {
+                    width: 450px;
+                    margin: 0 auto;
+                    overflow: hidden;
+                }
+
+                #hotmenu li {
+                    float: left;
+                    padding: 1px 6px;
                 }
             </style>
-            <!-- 핫메뉴Zone시작 -->
-            <div id="hotmenuZone"></div>
+            <div id="hotmenuZone">
+                <div id="hotmenu">
+                    <ul>
+                        <li><a href="#">캠핑장소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보보호정책</a></li>
+                        <li><a href="#">이메일수집거부</a></li>
+                    </ul>
+                </div>
+
+            </div>
             <!-- 핫메뉴Zone끝 -->
             <!-- 주소Zone시작 -->
             <style>
                 #addrZone {
-                    max-width: 1200px;
-                    margin: 0 auto;
                     width: 100%;
+                    color: #828282;
+                    background-color: #e8e8e8;
                 }
 
                 .addr {
-                    color: #828282;
-                    background-color: #E8E8E8;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    width: 100%;
                     font-size: 14px;
                     overflow: hidden;
                 }
 
                 .addrinfo {
+
                     float: left;
                     display: inline;
                 }
@@ -507,6 +530,7 @@
                             <span class="eng_num bold">000-0000-0000</span><br>
                             개인정보책임자 : 000 &nbsp;&nbsp; 이메일 : <span class="eng_num bold">000000@0000.000</span>
                         </address>
+
                     </div>
                     <div class="addrinfo">
                         <h4>Customer</h4>
@@ -521,12 +545,16 @@
                         <li><a href="#" title="유튜브"><i class="fa fa-youtube-square fa-2x"></i></a></li>
                         <li><a href="#" title="인스타그램"><i class="fa fa-instagram fa-2x"></i></a></li>
                     </ul>
+
                 </div>
             </div>
             <!-- 주소Zone끝 -->
+
         </div>
         <!-- 하단Area끝 -->
     </div>
+
+
 </body>
 
 </html>
