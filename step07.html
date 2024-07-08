@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6단계(슬라이더Zone)</title>
+    <title>7단계(슬라이더Zone- 자바스크립트 적용)</title>
     <script src="js/jquery.js"></script>
     <style>
         * {
@@ -205,16 +205,22 @@
                 }
 
                 /* .slider_panel > li {} */
-                .slider_image {
+                .slider_img {
                     min-width: 100%;
                 }
 
-                .slider_image>img {
+                .slider_img>img {
                     width: 100%;
                     display: block;
                 }
 
+
                 /* 슬라이더 컨트롤 */
+                #sub_photo_bg {
+                    background-color: aqua;
+
+                }
+
                 .control_panel {
                     position: absolute;
                     bottom: 10px;
@@ -270,10 +276,33 @@
                 </div>
             </div>
             <script>
-                // $(function(){
-                //     const $sliderPanel = $('.slider_panel');
-                //     const $controlBtns = $('.control_btn');
-                // )};
+                $(function () {
+                    const $sliderPanel = $('.slider_panel')
+                    const $controlBtn = $('.control_btn')
+                    const $leftBtn = $('.left_btn img')
+                    const $rightBtn = $('.right_btn img')
+
+                    let currentIndex = 0;
+
+                    function updateSlider(index) {
+                        $sliderPanel.css('left', `-${index * 100}%`);
+                    }
+                    $leftBtn.on('click', function () {
+                        currentIndex--;
+                        if (currentIndex < 0) {
+                            currentIndex = 0;
+                        }
+                        updateSlider(currentIndex);
+                    });
+                    $rightBtn.on('click', function () {
+                        currentIndex++;
+                        if (currentIndex > 2) {
+                            currentIndex = 2;
+                        }
+                        updateSlider(currentIndex);
+                    });
+                    // updateSlider(2);
+                });
             </script>
             <!-- 슬라이더Zone끝 -->
         </div>
